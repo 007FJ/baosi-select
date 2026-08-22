@@ -1,0 +1,794 @@
+{
+ "45|R22": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-10",
+  "lnwd_min": "20",
+  "lnwd_max": "55",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "45|R404A": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-15",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "45|R507": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-15",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "45|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "46|R22": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "55",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "46|R404A": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "46|R507": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "46|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "49|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "49|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "49|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "49|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "50|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "50|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "50|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "50|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "55|R22": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-10",
+  "lnwd_min": "20",
+  "lnwd_max": "55",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "55|R404A": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-15",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "55|R507": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-15",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "55|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "56|R22": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "55",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "56|R404A": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "56|R507": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "75",
+  "zlj_dsj": "0"
+ },
+ "56|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "60|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "60|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "60|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "60|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "61|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "61|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "61|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "61|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "63|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "63|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "63|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "63|R134a": {
+  "zfwd_min": "-15",
+  "zfwd_max": "13",
+  "lnwd_min": "20",
+  "lnwd_max": "55",
+  "pl_min": "25",
+  "pl_max": "65",
+  "zlj_dsj": "0"
+ },
+ "64|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "64|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "64|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "64|R134a": {
+  "zfwd_min": "-20",
+  "zfwd_max": "20",
+  "lnwd_min": "25",
+  "lnwd_max": "70",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "66|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "66|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "66|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "66|R134a": {
+  "zfwd_min": "-15",
+  "zfwd_max": "13",
+  "lnwd_min": "20",
+  "lnwd_max": "55",
+  "pl_min": "25",
+  "pl_max": "65",
+  "zlj_dsj": "0"
+ },
+ "67|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "67|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "67|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "67|R134a": {
+  "zfwd_min": "-20",
+  "zfwd_max": "20",
+  "lnwd_min": "20",
+  "lnwd_max": "70",
+  "pl_min": "25",
+  "pl_max": "65",
+  "zlj_dsj": "0"
+ },
+ "69|R22": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-10",
+  "lnwd_min": "20",
+  "lnwd_max": "55",
+  "pl_min": "25",
+  "pl_max": "80",
+  "zlj_dsj": "0"
+ },
+ "69|R404A": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-15",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "80",
+  "zlj_dsj": "0"
+ },
+ "69|R507": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-15",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "80",
+  "zlj_dsj": "0"
+ },
+ "69|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "70|R22": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "55",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "70|R404A": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "70|R507": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "70|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "71|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "71|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "71|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "71|R134a": {
+  "zfwd_min": "5",
+  "zfwd_max": "35",
+  "lnwd_min": "60",
+  "lnwd_max": "85",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "72|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "72|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "72|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "72|R134a": {
+  "zfwd_min": "-20",
+  "zfwd_max": "15",
+  "lnwd_min": "20",
+  "lnwd_max": "60",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "73|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "73|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "73|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "73|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "75|R22": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-10",
+  "lnwd_min": "20",
+  "lnwd_max": "55",
+  "pl_min": "20",
+  "pl_max": "80",
+  "zlj_dsj": "0"
+ },
+ "75|R404A": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-15",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "80",
+  "zlj_dsj": "0"
+ },
+ "75|R507": {
+  "zfwd_min": "-45",
+  "zfwd_max": "-15",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "20",
+  "pl_max": "80",
+  "zlj_dsj": "0"
+ },
+ "75|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "76|R22": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "55",
+  "pl_min": "25",
+  "pl_max": "80",
+  "zlj_dsj": "0"
+ },
+ "76|R404A": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "80",
+  "zlj_dsj": "0"
+ },
+ "76|R507": {
+  "zfwd_min": "-25",
+  "zfwd_max": "10",
+  "lnwd_min": "20",
+  "lnwd_max": "50",
+  "pl_min": "25",
+  "pl_max": "80",
+  "zlj_dsj": "0"
+ },
+ "76|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "77|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "77|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "77|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "77|R134a": {
+  "zfwd_min": "5",
+  "zfwd_max": "35",
+  "lnwd_min": "60",
+  "lnwd_max": "85",
+  "pl_min": "25",
+  "pl_max": "80",
+  "zlj_dsj": "0"
+ },
+ "78|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "78|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "78|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "78|R134a": {
+  "zfwd_min": "-20",
+  "zfwd_max": "15",
+  "lnwd_min": "20",
+  "lnwd_max": "60",
+  "pl_min": "25",
+  "pl_max": "80",
+  "zlj_dsj": "0"
+ },
+ "79|R22": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "79|R404A": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "79|R507": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ },
+ "79|R134a": {
+  "zfwd_min": "鏃犳晥",
+  "zfwd_max": "鏃犳晥",
+  "lnwd_min": "鏃犳晥",
+  "lnwd_max": "鏃犳晥",
+  "pl_min": "鏃犳晥",
+  "pl_max": "鏃犳晥",
+  "zlj_dsj": "0"
+ }
+}
