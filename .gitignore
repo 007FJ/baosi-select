@@ -1,0 +1,7 @@
+compressors_baosi*.js
+baosi_gen_progress*.json
+baosi_gen*.log
+baosi_probe*.log
+*.pid
+*.tmp
+proxy_ok.txt
