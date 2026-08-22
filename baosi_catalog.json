@@ -1,0 +1,1073 @@
+{
+ "BRL": {
+  "BRL-D": {
+   "cpid": "NDU=",
+   "cplb": "45",
+   "models": {
+    "BRL 80-20D": {
+     "mid": "Nw==",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "88",
+     "oil": "9",
+     "bp": "0",
+     "fjpql": "20",
+     "yll": "9"
+    },
+    "BRL 100-30D": {
+     "mid": "Mw==",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "118",
+     "oil": "12",
+     "bp": "0",
+     "fjpql": "20",
+     "yll": "12"
+    },
+    "BRL 140-40D": {
+     "mid": "MTE0",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "162",
+     "oil": "14",
+     "bp": "0",
+     "fjpql": "22",
+     "yll": "14"
+    },
+    "BRL 180-50D": {
+     "mid": "MQ==",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "199",
+     "oil": "14",
+     "bp": "0",
+     "fjpql": "26",
+     "yll": "14"
+    },
+    "BRL 200-60D": {
+     "mid": "MTE1",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "228",
+     "oil": "16",
+     "bp": "0",
+     "fjpql": "24",
+     "yll": "16"
+    },
+    "BRL 260-75D": {
+     "mid": "MTA=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "290",
+     "oil": "16",
+     "bp": "0",
+     "fjpql": "28",
+     "yll": "16"
+    },
+    "BRL 310-90D": {
+     "mid": "MTE2",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "340",
+     "oil": "18",
+     "bp": "0",
+     "fjpql": "32",
+     "yll": "18"
+    },
+    "BRL 340-100D": {
+     "mid": "MTE=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "376",
+     "oil": "18",
+     "bp": "0",
+     "fjpql": "34",
+     "yll": "18"
+    },
+    "BRL 410-120D": {
+     "mid": "MTIw",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "450",
+     "oil": "22",
+     "bp": "0",
+     "fjpql": "40",
+     "yll": "22"
+    },
+    "BRL 440-130D": {
+     "mid": "MTMw",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "480",
+     "oil": "22",
+     "bp": "0",
+     "fjpql": "40",
+     "yll": "22"
+    },
+    "BRL 470-140D": {
+     "mid": "MTMx",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "510",
+     "oil": "25",
+     "bp": "0",
+     "fjpql": "24",
+     "yll": "25"
+    },
+    "BRL 510-150D": {
+     "mid": "MTMy",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "550",
+     "oil": "25",
+     "bp": "0",
+     "fjpql": "24",
+     "yll": "25"
+    },
+    "BRL 550-160D": {
+     "mid": "MTMz",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "590",
+     "oil": "25",
+     "bp": "0",
+     "fjpql": "30",
+     "yll": "25"
+    },
+    "BRL 620-180D": {
+     "mid": "MTM0",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "668",
+     "oil": "28",
+     "bp": "0",
+     "fjpql": "43",
+     "yll": "28"
+    },
+    "BRL 660-190D": {
+     "mid": "MTM1",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "700",
+     "oil": "28",
+     "bp": "0",
+     "fjpql": "43",
+     "yll": "28"
+    },
+    "BRL 710-200D": {
+     "mid": "MTM2",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "750",
+     "oil": "28",
+     "bp": "0",
+     "fjpql": "40",
+     "yll": "28"
+    }
+   }
+  },
+  "BRL-N": {
+   "cpid": "NDY=",
+   "cplb": "46",
+   "models": {
+    "BRL 80-25N": {
+     "mid": "MTM=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "88",
+     "oil": "9",
+     "bp": "0",
+     "fjpql": "20",
+     "yll": "9"
+    },
+    "BRL 100-35N": {
+     "mid": "MTQ=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "118",
+     "oil": "12",
+     "bp": "0",
+     "fjpql": "20",
+     "yll": "12"
+    },
+    "BRL 140-50N": {
+     "mid": "MTE3",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "162",
+     "oil": "14",
+     "bp": "0",
+     "fjpql": "17",
+     "yll": "14"
+    },
+    "BRL 180-60N": {
+     "mid": "MTU=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "199",
+     "oil": "14",
+     "bp": "0",
+     "fjpql": "25",
+     "yll": "14"
+    },
+    "BRL 200-70N": {
+     "mid": "MTE4",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "228",
+     "oil": "16",
+     "bp": "0",
+     "fjpql": "20",
+     "yll": "16"
+    },
+    "BRL 260-90N": {
+     "mid": "MTY=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "290",
+     "oil": "16",
+     "bp": "0",
+     "fjpql": "25",
+     "yll": "16"
+    },
+    "BRL 310-110N": {
+     "mid": "MTE5",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "340",
+     "oil": "18",
+     "bp": "0",
+     "fjpql": "30",
+     "yll": "18"
+    },
+    "BRL 340-120N": {
+     "mid": "MTc=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "376",
+     "oil": "18",
+     "bp": "0",
+     "fjpql": "30",
+     "yll": "18"
+    },
+    "BRL 410-140N": {
+     "mid": "MTIx",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "440",
+     "oil": "22",
+     "bp": "0",
+     "fjpql": "26",
+     "yll": "22"
+    },
+    "BRL 440-150N": {
+     "mid": "MTIz",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "470",
+     "oil": "22",
+     "bp": "0",
+     "fjpql": "30",
+     "yll": "22"
+    },
+    "BRL 470-160N": {
+     "mid": "MTI5",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "510",
+     "oil": "25",
+     "bp": "0",
+     "fjpql": "24",
+     "yll": "25"
+    },
+    "BRL 510-170N": {
+     "mid": "MTI1",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "550",
+     "oil": "25",
+     "bp": "0",
+     "fjpql": "24",
+     "yll": "25"
+    },
+    "BRL 550-180N": {
+     "mid": "MTI3",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "590",
+     "oil": "25",
+     "bp": "0",
+     "fjpql": "28",
+     "yll": "25"
+    },
+    "BRL 620-200N": {
+     "mid": "MTM3",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "668",
+     "oil": "28",
+     "bp": "0",
+     "fjpql": "38",
+     "yll": "28"
+    },
+    "BRL 660-210N": {
+     "mid": "MTM4",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "700",
+     "oil": "28",
+     "bp": "0",
+     "fjpql": "38",
+     "yll": "28"
+    },
+    "BRL 710-230N": {
+     "mid": "MTM5",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "760",
+     "oil": "28",
+     "bp": "0",
+     "fjpql": "35",
+     "yll": "28"
+    }
+   }
+  }
+ },
+ "BRLV": {
+  "BRLV-D": {
+   "cpid": "NTU=",
+   "cplb": "55",
+   "models": {
+    "BRLV270-80D": {
+     "mid": "NzU=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "199",
+     "oil": "16",
+     "bp": "1",
+     "fjpql": "26",
+     "yll": "16"
+    },
+    "BRLV380-110D": {
+     "mid": "NzY=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "290",
+     "oil": "18",
+     "bp": "1",
+     "fjpql": "30",
+     "yll": "18"
+    },
+    "BRLV510-150D": {
+     "mid": "Nzc=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "376",
+     "oil": "20",
+     "bp": "1",
+     "fjpql": "36",
+     "yll": "20"
+    },
+    "BRLV660-190D": {
+     "mid": "NzQ=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "480",
+     "oil": "24",
+     "bp": "1",
+     "fjpql": "42",
+     "yll": "24"
+    },
+    "BRLV830-240D": {
+     "mid": "NzM=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "590",
+     "oil": "30",
+     "bp": "1",
+     "fjpql": "32",
+     "yll": "30"
+    },
+    "BRLV1000-300D": {
+     "mid": "MTQw",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "750",
+     "oil": "34",
+     "bp": "1",
+     "fjpql": "42",
+     "yll": "34"
+    }
+   }
+  },
+  "BRLV-N": {
+   "cpid": "NTY=",
+   "cplb": "56",
+   "models": {
+    "BRLV270-90N": {
+     "mid": "ODE=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "199",
+     "oil": "16",
+     "bp": "1",
+     "fjpql": "26",
+     "yll": "16"
+    },
+    "BRLV380-130N": {
+     "mid": "ODI=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "290",
+     "oil": "18",
+     "bp": "1",
+     "fjpql": "27",
+     "yll": "18"
+    },
+    "BRLV510-170N": {
+     "mid": "ODM=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "376",
+     "oil": "20",
+     "bp": "1",
+     "fjpql": "32",
+     "yll": "20"
+    },
+    "BRLV660-210N": {
+     "mid": "Nzk=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "470",
+     "oil": "24",
+     "bp": "1",
+     "fjpql": "32",
+     "yll": "24"
+    },
+    "BRLV830-270N": {
+     "mid": "ODA=",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "590",
+     "oil": "30",
+     "bp": "1",
+     "fjpql": "32",
+     "yll": "30"
+    },
+    "BRLV1000-340N": {
+     "mid": "MTQx",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "760",
+     "oil": "34",
+     "bp": "1",
+     "fjpql": "37",
+     "yll": "34"
+    }
+   }
+  }
+ },
+ "BDL": {
+  "BDL": {
+   "cpid": "NDk=",
+   "cplb": "49",
+   "models": {
+    "BDL200": {
+     "mid": "NTE=",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "226,110",
+     "oil": "20",
+     "bp": "0",
+     "fjpql": "0",
+     "yll": "20"
+    },
+    "BDL300": {
+     "mid": "NTA=",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "308,145",
+     "oil": "26",
+     "bp": "0",
+     "fjpql": "0",
+     "yll": "26"
+    },
+    "BDL450": {
+     "mid": "NDk=",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "496,215",
+     "oil": "30",
+     "bp": "0",
+     "fjpql": "0",
+     "yll": "30"
+    },
+    "BDL550": {
+     "mid": "NDg=",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "600,245",
+     "oil": "34",
+     "bp": "0",
+     "fjpql": "0",
+     "yll": "34"
+    },
+    "BDL720": {
+     "mid": "MTQy",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "705,340",
+     "oil": "40",
+     "bp": "0",
+     "fjpql": "0",
+     "yll": "40"
+    },
+    "BDL920": {
+     "mid": "MTQz",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "910,425",
+     "oil": "46",
+     "bp": "0",
+     "fjpql": "0",
+     "yll": "46"
+    }
+   }
+  },
+  "BDL-II": {
+   "cpid": "NTA=",
+   "cplb": "50",
+   "models": {
+    "BDL450-II": {
+     "mid": "MTg0",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "496,215",
+     "oil": "26",
+     "bp": "0",
+     "fjpql": "0",
+     "yll": "26"
+    },
+    "BDL550-II": {
+     "mid": "MTg1",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "600,245",
+     "oil": "26",
+     "bp": "0",
+     "fjpql": "0",
+     "yll": "26"
+    },
+    "BDL720-II": {
+     "mid": "MTg2",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "705,340",
+     "oil": "32",
+     "bp": "0",
+     "fjpql": "0",
+     "yll": "32"
+    },
+    "BDL920-II": {
+     "mid": "MTg3",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "910,425",
+     "oil": "32",
+     "bp": "0",
+     "fjpql": "0",
+     "yll": "32"
+    },
+    "BDLV1380": {
+     "mid": "MTg4",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "1386,710",
+     "oil": "36",
+     "bp": "0",
+     "fjpql": "0",
+     "yll": "36"
+    }
+   }
+  }
+ },
+ "BDLV": {
+  "BDLV": {
+   "cpid": "NjA=",
+   "cplb": "60",
+   "models": {
+    "BDLV300": {
+     "mid": "MTAy",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "230,110",
+     "oil": "20",
+     "bp": "1",
+     "fjpql": "0",
+     "yll": "20"
+    },
+    "BDLV450": {
+     "mid": "MTAz",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "313,145",
+     "oil": "26",
+     "bp": "1",
+     "fjpql": "0",
+     "yll": "26"
+    },
+    "BDLV690": {
+     "mid": "MTA0",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "504,215",
+     "oil": "30",
+     "bp": "1",
+     "fjpql": "0",
+     "yll": "30"
+    },
+    "BDLV850": {
+     "mid": "MTA1",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "610,245",
+     "oil": "34",
+     "bp": "1",
+     "fjpql": "0",
+     "yll": "34"
+    },
+    "BDLV1080": {
+     "mid": "MTQ0",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "717,340",
+     "oil": "46",
+     "bp": "1",
+     "fjpql": "0",
+     "yll": "46"
+    },
+    "BDLV1380": {
+     "mid": "MTQ1",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "919,425",
+     "oil": "46",
+     "bp": "1",
+     "fjpql": "0",
+     "yll": "46"
+    }
+   }
+  },
+  "BDLV-II": {
+   "cpid": "NjE=",
+   "cplb": "61",
+   "models": {
+    "BDLV690-II": {
+     "mid": "MTkw",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "504,215",
+     "oil": "30",
+     "bp": "1",
+     "fjpql": "0",
+     "yll": "30"
+    },
+    "BDLV850-II": {
+     "mid": "MTkx",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "610,245",
+     "oil": "30",
+     "bp": "1",
+     "fjpql": "0",
+     "yll": "30"
+    },
+    "BDLV1080-II": {
+     "mid": "MTky",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "717,340",
+     "oil": "36",
+     "bp": "1",
+     "fjpql": "0",
+     "yll": "36"
+    },
+    "BDLV1380-II": {
+     "mid": "MTkz",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "919,425",
+     "oil": "36",
+     "bp": "1",
+     "fjpql": "0",
+     "yll": "36"
+    },
+    "BDLV2000": {
+     "mid": "MTk0",
+     "refr_ids": "5,6,7",
+     "refr_names": "R404A,R22,R507",
+     "pql": "1386,710",
+     "oil": "40",
+     "bp": "1",
+     "fjpql": "0",
+     "yll": "40"
+    }
+   }
+  }
+ },
+ "BEL": {
+  "BEL-MW": {
+   "cpid": "NjM=",
+   "cplb": "63",
+   "models": {
+    "BEL180-MW": {
+     "mid": "MTQ4",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "199",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "19",
+     "yll": ""
+    },
+    "BEL340-MW": {
+     "mid": "MTQ5",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "376",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "30",
+     "yll": ""
+    },
+    "BEL410-MW": {
+     "mid": "MTUw",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "445",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "30",
+     "yll": ""
+    },
+    "BEL550-MW": {
+     "mid": "MTUx",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "590",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "35",
+     "yll": ""
+    },
+    "BEL710-MW": {
+     "mid": "MTUy",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "760",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "40",
+     "yll": ""
+    },
+    "BEL930-MW": {
+     "mid": "MTUz",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "981",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "40",
+     "yll": ""
+    }
+   }
+  },
+  "BEL-TH": {
+   "cpid": "NjQ=",
+   "cplb": "64",
+   "models": {
+    "BEL180-TH": {
+     "mid": "MTU0",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "199",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "26",
+     "yll": ""
+    },
+    "BEL340-TH": {
+     "mid": "MTU1",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "376",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "34",
+     "yll": ""
+    },
+    "BEL410-TH": {
+     "mid": "MTU2",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "470",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "30",
+     "yll": ""
+    },
+    "BEL550-TH": {
+     "mid": "MTU3",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "590",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "30",
+     "yll": ""
+    },
+    "BEL710-TH": {
+     "mid": "MTU4",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "760",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "40",
+     "yll": ""
+    },
+    "BEL930-TH": {
+     "mid": "MTU5",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "981",
+     "oil": "",
+     "bp": "0",
+     "fjpql": "40",
+     "yll": ""
+    }
+   }
+  }
+ },
+ "BELV": {
+  "BELV-MW": {
+   "cpid": "NjY=",
+   "cplb": "66",
+   "models": {
+    "BELV710-MW": {
+     "mid": "MTYw",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "590",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "11",
+     "yll": ""
+    },
+    "BELV930-MW": {
+     "mid": "MTYx",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "760",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "13",
+     "yll": ""
+    },
+    "BELV1200-MW": {
+     "mid": "MTYy",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "1010",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "10",
+     "yll": ""
+    }
+   }
+  },
+  "BELV-TH": {
+   "cpid": "Njc=",
+   "cplb": "67",
+   "models": {
+    "BELV710-TH": {
+     "mid": "MTYz",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "590",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "15",
+     "yll": ""
+    },
+    "BELV930-TH": {
+     "mid": "MTY0",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "760",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "25",
+     "yll": ""
+    },
+    "BELV1200-TH": {
+     "mid": "MTY1",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "1010",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "15",
+     "yll": ""
+    }
+   }
+  }
+ },
+ "BL": {
+  "BL-D": {
+   "cpid": "Njk=",
+   "cplb": "69",
+   "models": {}
+  },
+  "BL-N": {
+   "cpid": "NzA=",
+   "cplb": "70",
+   "models": {}
+  },
+  "BL-TH": {
+   "cpid": "NzE=",
+   "cplb": "71",
+   "models": {}
+  },
+  "BL-MW": {
+   "cpid": "NzI=",
+   "cplb": "72",
+   "models": {}
+  },
+  "BL-P": {
+   "cpid": "NzM=",
+   "cplb": "73",
+   "models": {}
+  }
+ },
+ "BLV": {
+  "BLV-D": {
+   "cpid": "NzU=",
+   "cplb": "75",
+   "models": {
+    "BLV90-D": {
+     "mid": "MTc1",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "70",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "4",
+     "yll": ""
+    },
+    "BLV120-D": {
+     "mid": "MTc2",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "88",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "5",
+     "yll": ""
+    },
+    "BLV180-D": {
+     "mid": "MTc3",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "112",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "6",
+     "yll": ""
+    }
+   }
+  },
+  "BLV-N": {
+   "cpid": "NzY=",
+   "cplb": "76",
+   "models": {
+    "BLV90-N": {
+     "mid": "MTgw",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "70",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "3",
+     "yll": ""
+    },
+    "BLV120-N": {
+     "mid": "MTc5",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "88",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "4",
+     "yll": ""
+    },
+    "BLV180-N": {
+     "mid": "MTc4",
+     "refr_ids": "2,4,8",
+     "refr_names": "R22,R404A,R507",
+     "pql": "112",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "5",
+     "yll": ""
+    }
+   }
+  },
+  "BLV-TH": {
+   "cpid": "Nzc=",
+   "cplb": "77",
+   "models": {}
+  },
+  "BLV-MW": {
+   "cpid": "Nzg=",
+   "cplb": "78",
+   "models": {
+    "BLV90-MW": {
+     "mid": "MTgx",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "70",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "3",
+     "yll": ""
+    },
+    "BLV120-MW": {
+     "mid": "MTgy",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "88",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "4",
+     "yll": ""
+    },
+    "BLV180-MW": {
+     "mid": "MTgz",
+     "refr_ids": "3",
+     "refr_names": "R134a",
+     "pql": "112",
+     "oil": "",
+     "bp": "1",
+     "fjpql": "5",
+     "yll": ""
+    }
+   }
+  },
+  "BLV-P": {
+   "cpid": "Nzk=",
+   "cplb": "79",
+   "models": {}
+  }
+ }
+}
