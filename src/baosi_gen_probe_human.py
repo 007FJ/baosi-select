@@ -1,21 +1,23 @@
 # -*- coding: utf-8 -*-
-"""椴嶆柉閫夊瀷鏁版嵁鎵归噺鐢熸垚鍣?v2 (2026-08-20 闃插皝鍗囩骇鐗?
-= 鍘?baosi_gen_probe.py + 妯℃嫙鐪熶汉鎿嶄綔 + 浠ｇ悊姹犺疆鎹?鏂板:
-  --proxy <浠ｇ悊姹犳枃浠?   姣忚 ip:port, 鑷姩杞崲 (鍏嶈垂浠ｇ悊姹?
-  --human               妯℃嫙鐪熶汉: 闅忔満闂撮殧/闅忔満闀挎殏鍋?浠诲姟鎵撲贡/cookie浼氳瘽/鍋跺皵娴忚椤甸潰
-闃插皝璁捐 (2026-08-20 涓夋灏佺鍚庡畾鍨?:
-  1. 闅忔満闂撮殧 2.5~6.5s (骞冲潎4.5s鈮?.22req/s, 浣庝簬瀹樼綉IP闄愭祦0.3req/s) 鏇夸唬鍥哄畾4s
-  2. 姣?~50 璇锋眰鑷姩鎹唬鐞?(杞崲IP, 鍒嗘暎璐熻浇)
-  3. 澶辫触閲嶈瘯鏃剁珛鍗虫崲浠ｇ悊 + 鎸囨暟閫€閬?  4. cookie jar 淇濇寔浼氳瘽 (鍚屾祻瑙堝櫒琛屼负)
-  5. 5% 姒傜巼绌挎彃椤甸潰娴忚璇锋眰 (model.php 棣栭〉), 妯℃嫙鐪熶汉鎿嶄綔
-  6. 浠诲姟椤哄簭鎵撲贡 (涓嶆寜鍨嬪彿杩炵画鍒?
-璋冪敤: python baosi_gen_probe_human.py --models X --prog P --out O --proxy proxy_ok.txt --human
+"""鲍斯选型数据批量生成器 v2 (2026-08-20 防封升级版)
+= 原 baosi_gen_probe.py + 模拟真人操作 + 代理池轮换
+新增:
+  --proxy <代理池文件>   每行 ip:port, 自动轮换 (免费代理池)
+  --human               模拟真人: 随机间隔/随机长暂停/任务打乱/cookie会话/偶尔浏览页面
+防封设计 (2026-08-20 三次封禁后定型):
+  1. 随机间隔 2.5~6.5s (平均4.5s≈0.22req/s, 低于官网IP限流0.3req/s) 替代固定4s
+  2. 每 ~50 请求自动换代理 (轮换IP, 分散负载)
+  3. 失败重试时立即换代理 + 指数退避
+  4. cookie jar 保持会话 (同浏览器行为)
+  5. 5% 概率穿插页面浏览请求 (model.php 首页), 模拟真人操作
+  6. 任务顺序打乱 (不按型号连续刷)
+调用: python baosi_gen_probe_human.py --models X --prog P --out O --proxy proxy_ok.txt --human
 """
 import json, subprocess, urllib.parse, time, sys, os, re, random, tempfile
 
+
 BASE = "https://bsysj.dmbz.net"
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-WS = os.path.dirname(SCRIPT_DIR)
+WS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CAT = os.path.join(WS, "baosi_catalog.json")
 RNG = os.path.join(WS, "baosi_ranges.json")
 OUT = os.path.join(WS, "compressors_baosi.js")
@@ -23,7 +25,7 @@ PROG = os.path.join(WS, "baosi_gen_progress.json")
 LOG = os.path.join(WS, "baosi_gen.log")
 PROBE_LOG = os.path.join(WS, "baosi_probe2.log")
 
-# ---------- 鍙傛暟瑙ｆ瀽 ----------
+# ---------- 参数解析 ----------
 TARGET_MODELS = None
 EXCLUDE_MODELS = None
 if '--models' in sys.argv:
@@ -37,7 +39,7 @@ if '--out' in sys.argv:
 if '--log' in sys.argv:
     LOG = sys.argv[sys.argv.index('--log') + 1]
 
-# ---------- 闃插皝鍏ㄥ眬 (2026-08-20) ----------
+# ---------- 防封全局 (2026-08-20) ----------
 HUMAN = '--human' in sys.argv
 PROXY_FILE = None
 if '--proxy' in sys.argv:
@@ -50,20 +52,20 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 REFERER = "https://bsysj.dmbz.net/calculation.php"
 
 def load_proxies():
-    """璇诲彇浠ｇ悊姹犳枃浠跺苟鎵撲贡"""
+    """读取代理池文件并打乱"""
     global PROXY_LIST
     if not PROXY_FILE:
         return
     try:
-        with open(PROXY_FILE, encoding='utf-8-sig') as f:
+        with open(PROXY_FILE, encoding='utf-8-sig') as f:  # utf-8-sig 兼容 BOM (PS Set-Content 会写 BOM)
             PROXY_LIST = [l.strip() for l in f if l.strip() and l.strip()[0].isdigit()]
         random.shuffle(PROXY_LIST)
-        log(f"浠ｇ悊姹犲姞杞? {len(PROXY_LIST)} 涓?(鏉ヨ嚜 {PROXY_FILE})")
+        log(f"代理池加载: {len(PROXY_LIST)} 个 (来自 {PROXY_FILE})")
     except Exception as e:
-        log(f"浠ｇ悊姹犲姞杞藉け璐? {e}")
+        log(f"代理池加载失败: {e}")
 
 def next_proxy():
-    """鍙栦笅涓€涓唬鐞?(椤哄簭杞崲, 鍙栨ā闃茶秺鐣?"""
+    """取下一个代理 (顺序轮换, 取模防越界)"""
     global PROXY_IDX
     if not PROXY_LIST:
         return None
@@ -72,7 +74,7 @@ def next_proxy():
     return p
 
 def browse_page():
-    """妯℃嫙鐪熶汉娴忚: 鍋跺皵璁块棶閫夊瀷椤甸潰 (闈欓粯, 涓嶈蛋curl涓诲嚱鏁伴槻閫掑綊)"""
+    """模拟真人浏览: 偶尔访问选型页面 (静默, 不走curl主函数防递归)"""
     try:
         cmd = ["curl", "-s", "--max-time", "12", "-o", "/dev/null",
                "-H", "User-Agent: " + UA, "-b", COOKIE_JAR, "-c", COOKIE_JAR]
@@ -89,14 +91,17 @@ FREQ_VFD = [30, 40, 50, 60]
 REQUEST_GAP = 4.0
 
 def curl(url, data=None, retries=4):
-    """鍙戣捣璇锋眰: 闅忔満闂撮殧 + 浠ｇ悊杞崲 + cookie浼氳瘽 + 澶辫触鎹唬鐞嗛噸璇?(2026-08-20 闃插皝鍗囩骇)"""
+    """发起请求: 随机间隔 + 代理轮换 + cookie会话 + 失败换代理重试 (2026-08-20 防封升级)"""
     global REQ_COUNT, PROXY_IDX
+    # 模拟真人: 随机间隔 2.5~6.5s (平均4.5s=0.22req/s, 低于官网0.3req/s限流)
     if HUMAN:
         time.sleep(random.uniform(2.5, 6.5))
     else:
         time.sleep(REQUEST_GAP)
+    # 模拟真人: 5% 概率穿插一次页面浏览
     if HUMAN and random.random() < 0.05:
         browse_page()
+    # 每 50 个 API 请求换一次代理 (轮换IP防封)
     if PROXY_LIST and REQ_COUNT % 50 == 49:
         PROXY_IDX += 1
     with open(PROBE_LOG, 'a', encoding='utf-8') as _pf:
@@ -120,6 +125,7 @@ def curl(url, data=None, retries=4):
                 return r.stdout.decode("utf-8", errors="replace")
         except Exception:
             pass
+        # 失败: 换代理重试 (免费代理不稳定)
         if PROXY_LIST:
             cur = PROXY_LIST[(PROXY_IDX + i + 1) % len(PROXY_LIST)]
         time.sleep(8 * (2 ** i))
@@ -132,7 +138,7 @@ def log(msg):
         f.write(line + "\n")
 
 def save_progress(progress):
-    """鍘熷瓙鍐欒繘搴︽枃浠?(2026-08-18 瀹氬瀷)"""
+    """原子写进度文件 (2026-08-18 定型)"""
     tmp = PROG + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(progress, f, ensure_ascii=False)
@@ -148,7 +154,7 @@ def calc(pql, zll, tc, te, jjq, bp, bpq, fjpql, yll):
         d = json.loads(j)
     except Exception:
         return None
-    if d.get("msg") != "鎿嶄綔鎴愬姛":
+    if d.get("msg") != "操作成功":
         return None
     return d
 
@@ -171,28 +177,28 @@ def build_te_tc(te_min, te_max, tc_min, tc_max):
 def get_range(cplb, refr):
     key = f"{cplb}|{refr}"
     rng = RANGES.get(key, {})
-    if rng.get("zfwd_min") in ("鏃犳晥", None, ""):
+    if rng.get("zfwd_min") in ("无效", None, ""):
         return None
     return rng
 
 def probe_range_via_xnjs(cpid, ysjxh, zll, pql, fjpql, yll):
-    """鎬ц兘琛ㄦ帰娴嬫湁鏁?Te/Tc 鑼冨洿 (BDL 鍙岀骇鏈虹瓑 wd_check 鏃犳晥鏃剁敤)"""
+    """性能表探测有效 Te/Tc 范围 (BDL 双级机等 wd_check 无效时用)"""
     j = curl(f"{BASE}/xnjs.php?cpid={urllib.parse.quote(cpid)}", {
         "zlj": zll, "pql": pql, "cpid": cpid, "ysjxh": ysjxh,
         "gjdy": "380V-3-50Hz", "rdzt": "100", "ytgld": "0", "xqgld": "10",
         "bp": "0", "fjpql": fjpql, "yll": yll, "dsj": "0",
     })
-    if not j or "鎬ц兘琛? not in j:
+    if not j or "性能表" not in j:
         return None
     rows = re.findall(r"<tr[^>]*>(.*?)</tr>", j, re.S)
     if len(rows) < 6:
         return None
     hdr = re.sub(r"<[^>]+>", " ", rows[4])
-    tes = [int(x) for x in re.findall(r"(-?\d+)鈩?, hdr)]
+    tes = [int(x) for x in re.findall(r"(-?\d+)℃", hdr)]
     valid_tcs = []
     for r in rows[5:]:
         txt = re.sub(r"<[^>]+>", " ", r)
-        m = re.search(r"鍐峰嚌娓╁害:(-?\d+)鈩?, txt)
+        m = re.search(r"冷凝温度:(-?\d+)℃", txt)
         if not m:
             continue
         cells = re.findall(r"<td[^>]*>(.*?)</td>", r, re.S)
@@ -222,6 +228,7 @@ def main():
     counts = {"std": 0, "eco": 0, "skip": 0, "fail": 0}
     tasks_done = 0
 
+    # 收集任务元组 (2026-08-20: 收集后打乱, 不按型号连续刷, 模拟真人)
     tasks = []
     for series, specs in cat.items():
         for spec_name, spec in specs.items():
@@ -240,7 +247,7 @@ def main():
     if HUMAN:
         random.shuffle(tasks)
     tasks_total = len(tasks)
-    log(f"浠诲姟鎬绘暟(鍨嬪彿x鍒跺喎鍓?: {tasks_total} (human={HUMAN} proxy={len(PROXY_LIST)})")
+    log(f"任务总数(型号x制冷剂): {tasks_total} (human={HUMAN} proxy={len(PROXY_LIST)})")
 
     for series, spec_name, cpid, cplb, mname, md, refrs in tasks:
         pql = md.get("pql", "")
@@ -258,7 +265,7 @@ def main():
             if rng is None:
                 pr = probe_range_via_xnjs(cpid, md["mid"], zll, pql, fjpql, yll)
                 if pr is None:
-                    log(f"SKIP {mname} {refr}: 鏃犺寖鍥存暟鎹?)
+                    log(f"SKIP {mname} {refr}: 无范围数据")
                     progress[task_key] = "no-range"
                     counts["skip"] += 1
                     tasks_done += 1
@@ -313,7 +320,7 @@ def main():
                                 counts["eco"] += 1
             progress[task_key] = "done" if model_rows > 0 else "fail"
             tasks_done += 1
-            log(f"{'OK' if model_rows > 0 else 'FAIL-绌?} {mname} {refr}: {model_rows}鏉?(杩涘害 {tasks_done}/{tasks_total})")
+            log(f"{'OK' if model_rows > 0 else 'FAIL-空'} {mname} {refr}: {model_rows}条 (进度 {tasks_done}/{tasks_total})")
             save_progress(progress)
             dump_result(result)
 
@@ -322,7 +329,7 @@ def main():
     log(f"ALL DONE std={counts['std']} eco={counts['eco']} skip={counts['skip']} fail={counts['fail']}")
 
 def dump_result(result):
-    """鍐欏嚭 JS 鏁版嵁鏂囦欢; 鍘熷瓙鍐?+ 璇绘棫鏂囦欢鍚堝苟 (2026-08-19/20 瀹氬瀷)"""
+    """写出 JS 数据文件; 原子写 + 读旧文件合并 (2026-08-19/20 定型)"""
     merged = {}
     if os.path.exists(OUT):
         try:
@@ -336,7 +343,7 @@ def dump_result(result):
     for refr, grid in result.items():
         for key, rows in grid.items():
             merged.setdefault(refr, {}).setdefault(key, []).extend(rows)
-    result.clear()
+    result.clear()  # 2026-08-21 修复: 已并入文件, 清空防同会话重复累积 (与 xnjs 脚本同修)
     parts = []
     for refr in sorted(merged.keys()):
         keys = sorted(merged[refr].keys(), key=lambda k: (int(k.split("|")[0]), int(k.split("|")[1])))
@@ -347,11 +354,11 @@ def dump_result(result):
         parts.append(f"  \"{refr}\": {{\n" + ",\n".join(refr_body) + "\n  }")
     tmp = OUT + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
-        f.write("// 椴嶆柉铻烘潌鍘嬬缉鏈虹绾块€夊瀷鏁版嵁 (BSC 瀹樼綉閫夊瀷绯荤粺瀹樻柟API鐢熸垚 2026-08)\n")
-        f.write("// 瀛楁: eco=0鏍囧噯/1缁忔祹鍣ㄥ畼鏂? freq=棰戠巼Hz(瀹氶50), cond_kW=鍐峰嚌鎺掔儹, eco_heat/eco_p/eco_t=缁忔祹鍣ㄥ弬鏁癨n")
+        f.write("// 鲍斯螺杆压缩机离线选型数据 (BSC 官网选型系统官方API生成 2026-08)\n")
+        f.write("// 字段: eco=0标准/1经济器官方, freq=频率Hz(定频50), cond_kW=冷凝排热, eco_heat/eco_p/eco_t=经济器参数\n")
         f.write("window.COMP_BAOSI = {\n" + ",\n".join(parts) + "\n};\n")
     os.replace(tmp, OUT)
-    log(f"宸插啓鍑?{OUT} ({os.path.getsize(OUT)//1024}KB)")
+    log(f"已写出 {OUT} ({os.path.getsize(OUT)//1024}KB)")
 
 if __name__ == "__main__":
     main()
