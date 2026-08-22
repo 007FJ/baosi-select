@@ -1,0 +1,67 @@
+name: Baosi Compressor Data Generator
+
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: '指定型号 (逗号分隔, 留空=全部)'
+        required: false
+        default: ''
+      exclude:
+        description: '排除型号 (逗号分隔)'
+        required: false
+        default: ''
+      use_proxy:
+        description: '是否使用代理 (true/false)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Write proxy file
+        if: inputs.use_proxy == 'true'
+        run: |
+          echo "${{ secrets.PROXY_ADDR }}" > proxy_ok.txt
+          echo "Proxy file created with $(wc -l < proxy_ok.txt) lines"
+
+      - name: Run generator
+        run: |
+          ARGS="--human"
+          if [ -n "${{ inputs.models }}" ]; then
+            ARGS="$ARGS --models ${{ inputs.models }}"
+          fi
+          if [ -n "${{ inputs.exclude }}" ]; then
+            ARGS="$ARGS --exclude ${{ inputs.exclude }}"
+          fi
+          if [ "${{ inputs.use_proxy }}" = "true" ]; then
+            ARGS="$ARGS --proxy proxy_ok.txt"
+          fi
+          python src/baosi_gen_probe_human.py $ARGS
+
+      - name: Upload output files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: baosi-output-${{ github.run_number }}
+          path: |
+            compressors_baosi*.js
+            baosi_gen_progress*.json
+            baosi_gen*.log
+            baosi_probe*.log
+          retention-days: 30
