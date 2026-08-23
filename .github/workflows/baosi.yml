@@ -41,18 +41,22 @@ jobs:
           echo "Proxy file created with $(wc -l < proxy_ok.txt) lines"
 
       - name: Run generator
+        env:
+          BAOSI_MODELS: ${{ inputs.models }}
+          BAOSI_EXCLUDE: ${{ inputs.exclude }}
+          BAOSI_USE_PROXY: ${{ inputs.use_proxy }}
         run: |
-          ARGS="--human"
-          if [ -n "${{ inputs.models }}" ]; then
-            ARGS="$ARGS --models \"${{ inputs.models }}\""
+          CMD="python src/baosi_gen_probe_human.py --human"
+          if [ -n "$BAOSI_MODELS" ]; then
+            CMD="$CMD --models \"$BAOSI_MODELS\""
           fi
-          if [ -n "${{ inputs.exclude }}" ]; then
-            ARGS="$ARGS --exclude \"${{ inputs.exclude }}\""
+          if [ -n "$BAOSI_EXCLUDE" ]; then
+            CMD="$CMD --exclude \"$BAOSI_EXCLUDE\""
           fi
-          if [ "${{ inputs.use_proxy }}" = "true" ]; then
-            ARGS="$ARGS --proxy proxy_ok.txt"
+          if [ "$BAOSI_USE_PROXY" = "true" ]; then
+            CMD="$CMD --proxy proxy_ok.txt"
           fi
-          python src/baosi_gen_probe_human.py $ARGS
+          eval $CMD
 
       - name: Upload output files
         if: always()
