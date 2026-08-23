@@ -44,10 +44,10 @@ jobs:
         run: |
           ARGS="--human"
           if [ -n "${{ inputs.models }}" ]; then
-            ARGS="$ARGS --models ${{ inputs.models }}"
+            ARGS="$ARGS --models \"${{ inputs.models }}\""
           fi
           if [ -n "${{ inputs.exclude }}" ]; then
-            ARGS="$ARGS --exclude ${{ inputs.exclude }}"
+            ARGS="$ARGS --exclude \"${{ inputs.exclude }}\""
           fi
           if [ "${{ inputs.use_proxy }}" = "true" ]; then
             ARGS="$ARGS --proxy proxy_ok.txt"
