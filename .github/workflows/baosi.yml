@@ -58,6 +58,43 @@ jobs:
           fi
           eval $CMD
 
+      - name: Continue if needed
+        if: success() && inputs.models == ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f baosi_gen_progress.json ]; then
+            TOTAL=$(python3 -c "
+          import json
+          cat = json.load(open('baosi_catalog.json'))
+          count = 0
+          for series in cat.values():
+              for spec in series.values():
+                  for mname, md in spec['models'].items():
+                      if 'error' not in md:
+                          refrs = [r for r in md.get('refr_names','').split(',') if r in ['R22','R404A','R507','R134a']]
+                          count += len(refrs)
+          print(count)
+          ")
+            DONE=$(python3 -c "
+          import json
+          prog = json.load(open('baosi_gen_progress.json'))
+          print(sum(1 for v in prog.values() if v in ('done','no-range','no-grid')))
+          ")
+            REMAINING=$((TOTAL - DONE))
+            echo "Total: $TOTAL, Done: $DONE, Remaining: $REMAINING"
+            if [ "$REMAINING" -gt 0 ]; then
+              echo "Triggering next run..."
+              curl -X POST \
+                -H "Accept: application/vnd.github.v3+json" \
+                -H "Authorization: token $GITHUB_TOKEN" \
+                https://api.github.com/repos/${{ github.repository }}/actions/workflows/baosi.yml/dispatches \
+                -d '{"ref":"main"}'
+            else
+              echo "All tasks completed!"
+            fi
+          fi
+
       - name: Upload output files
         if: always()
         uses: actions/upload-artifact@v4
