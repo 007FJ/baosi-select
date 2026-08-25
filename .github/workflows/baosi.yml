@@ -1,24 +1,9 @@
 name: Baosi Compressor Data Generator
 
 on:
-  workflow_dispatch:
-    inputs:
-      models:
-        description: '指定型号 (逗号分隔, 留空=全部)'
-        required: false
-        default: ''
-      exclude:
-        description: '排除型号 (逗号分隔)'
-        required: false
-        default: ''
-      use_proxy:
-        description: '是否使用代理 (true/false)'
-        required: false
-        default: 'false'
-        type: choice
-        options:
-          - 'true'
-          - 'false'
+  schedule:
+    - cron: '0 */6 * * *'  # 每6小时自动运行
+  workflow_dispatch:  # 保留手动触发
 
 jobs:
   generate:
@@ -35,7 +20,7 @@ jobs:
           python-version: '3.11'
 
       - name: Write proxy file
-        if: inputs.use_proxy == 'true'
+        if: inputs.use_proxy == 'true' || github.event_name == 'schedule'
         run: |
           echo "${{ secrets.PROXY_ADDR }}" > proxy_ok.txt
           echo "Proxy file created with $(wc -l < proxy_ok.txt) lines"
@@ -53,16 +38,17 @@ jobs:
           if [ -n "$BAOSI_EXCLUDE" ]; then
             CMD="$CMD --exclude \"$BAOSI_EXCLUDE\""
           fi
-          if [ "$BAOSI_USE_PROXY" = "true" ]; then
+          if [ "$BAOSI_USE_PROXY" = "true" ] || [ "${{ github.event_name }}" = "schedule" ]; then
             CMD="$CMD --proxy proxy_ok.txt"
           fi
           eval $CMD
 
       - name: Continue if needed
-        if: success() && inputs.models == ''
+        if: success()
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
+          # 检查是否还有未完成的任务
           if [ -f baosi_gen_progress.json ]; then
             TOTAL=$(python3 -c "
           import json
@@ -84,10 +70,10 @@ jobs:
             REMAINING=$((TOTAL - DONE))
             echo "Total: $TOTAL, Done: $DONE, Remaining: $REMAINING"
             if [ "$REMAINING" -gt 0 ]; then
-              echo "Triggering next run..."
+              echo "Triggering next run in 6 hours..."
               curl -X POST \
                 -H "Accept: application/vnd.github.v3+json" \
-                -H "Authorization: token $GITHUB_TOKEN" \
+                -H "Authorization: token $PAT_TOKEN" \
                 https://api.github.com/repos/${{ github.repository }}/actions/workflows/baosi.yml/dispatches \
                 -d '{"ref":"main"}'
             else
