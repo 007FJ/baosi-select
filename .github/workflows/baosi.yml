@@ -4,15 +4,10 @@ on:
   schedule:
     - cron: '0 */6 * * *'
   workflow_dispatch:
-    inputs:
-      models:
-        description: 'Models to run (comma-separated)'
-        required: false
-        default: ''
-      exclude:
-        description: 'Exclude models (comma-separated)'
-        required: false
-        default: ''
+
+permissions:
+  contents: write
+  actions: write
 
 jobs:
   generate:
