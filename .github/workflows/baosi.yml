@@ -2,8 +2,17 @@ name: Baosi Compressor Data Generator
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # 每6小时自动运行
-  workflow_dispatch:  # 保留手动触发
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      models:
+        description: 'Models to run (comma-separated)'
+        required: false
+        default: ''
+      exclude:
+        description: 'Exclude models (comma-separated)'
+        required: false
+        default: ''
 
 jobs:
   generate:
@@ -11,6 +20,14 @@ jobs:
     timeout-minutes: 350
 
     steps:
+      - name: Debug info
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Runner OS: ${{ runner.os }}"
+          echo "Runner name: ${{ runner.name }}"
+          echo "Repo: ${{ github.repository }}"
+          echo "SHA: ${{ github.sha }}"
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -20,27 +37,23 @@ jobs:
           python-version: '3.11'
 
       - name: Write proxy file
-        if: inputs.use_proxy == 'true' || github.event_name == 'schedule'
         run: |
           echo "${{ secrets.PROXY_ADDR }}" > proxy_ok.txt
           echo "Proxy file created with $(wc -l < proxy_ok.txt) lines"
 
       - name: Run generator
         env:
-          BAOSI_MODELS: ${{ inputs.models }}
-          BAOSI_EXCLUDE: ${{ inputs.exclude }}
-          BAOSI_USE_PROXY: ${{ inputs.use_proxy }}
+          BAOSI_MODELS: ${{ inputs.models || '' }}
+          BAOSI_EXCLUDE: ${{ inputs.exclude || '' }}
         run: |
-          CMD="python src/baosi_gen_probe_human.py --human"
+          CMD="python src/baosi_gen_probe_human.py --human --proxy proxy_ok.txt"
           if [ -n "$BAOSI_MODELS" ]; then
             CMD="$CMD --models \"$BAOSI_MODELS\""
           fi
           if [ -n "$BAOSI_EXCLUDE" ]; then
             CMD="$CMD --exclude \"$BAOSI_EXCLUDE\""
           fi
-          if [ "$BAOSI_USE_PROXY" = "true" ] || [ "${{ github.event_name }}" = "schedule" ]; then
-            CMD="$CMD --proxy proxy_ok.txt"
-          fi
+          echo "Running: $CMD"
           eval $CMD
 
       - name: Continue if needed
@@ -48,7 +61,6 @@ jobs:
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          # 检查是否还有未完成的任务
           if [ -f baosi_gen_progress.json ]; then
             TOTAL=$(python3 -c "
           import json
@@ -74,7 +86,7 @@ jobs:
               curl -X POST \
                 -H "Accept: application/vnd.github.v3+json" \
                 -H "Authorization: token $PAT_TOKEN" \
-                https://api.github.com/repos/${{ github.repository }}/actions/workflows/baosi.yml/dispatches \
+                "https://api.github.com/repos/${{ github.repository }}/actions/workflows/baosi.yml/dispatches" \
                 -d '{"ref":"main"}'
             else
               echo "All tasks completed!"
