@@ -4,6 +4,15 @@ on:
   schedule:
     - cron: '0 */6 * * *'
   workflow_dispatch:
+    inputs:
+      models:
+        description: 'Models to run (comma-separated)'
+        required: false
+        default: ''
+      exclude:
+        description: 'Exclude models (comma-separated)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -50,6 +59,25 @@ jobs:
           fi
           echo "Running: $CMD"
           eval $CMD
+
+      - name: Commit progress
+        if: success()
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          if [ -f baosi_gen_progress.json ]; then
+            git config user.name "baosi-bot"
+            git config user.email "baosi-bot@users.noreply.github.com"
+            git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.repository }}.git
+            git add compressors_baosi.js baosi_gen_progress.json
+            DONE=$(python3 -c "
+          import json
+          prog = json.load(open('baosi_gen_progress.json'))
+          print(sum(1 for v in prog.values() if v in ('done','no-range','no-grid')))
+          ")
+            git commit -m "data: run #${{ github.run_number }} progress (${DONE} tasks done)" || echo "No changes to commit"
+            git push origin main || echo "Push failed"
+          fi
 
       - name: Continue if needed
         if: success()
