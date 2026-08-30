@@ -15,9 +15,9 @@
 """
 import json, subprocess, urllib.parse, time, sys, os, re, random, tempfile
 
-
 BASE = "https://bsysj.dmbz.net"
-WS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+WS = os.path.dirname(SCRIPT_DIR)
 CAT = os.path.join(WS, "baosi_catalog.json")
 RNG = os.path.join(WS, "baosi_ranges.json")
 OUT = os.path.join(WS, "compressors_baosi.js")
@@ -57,7 +57,7 @@ def load_proxies():
     if not PROXY_FILE:
         return
     try:
-        with open(PROXY_FILE, encoding='utf-8-sig') as f:  # utf-8-sig 兼容 BOM (PS Set-Content 会写 BOM)
+        with open(PROXY_FILE, encoding='utf-8-sig') as f:
             PROXY_LIST = [l.strip() for l in f if l.strip() and l.strip()[0].isdigit()]
         random.shuffle(PROXY_LIST)
         log(f"代理池加载: {len(PROXY_LIST)} 个 (来自 {PROXY_FILE})")
@@ -93,15 +93,12 @@ REQUEST_GAP = 4.0
 def curl(url, data=None, retries=4):
     """发起请求: 随机间隔 + 代理轮换 + cookie会话 + 失败换代理重试 (2026-08-20 防封升级)"""
     global REQ_COUNT, PROXY_IDX
-    # 模拟真人: 随机间隔 2.5~6.5s (平均4.5s=0.22req/s, 低于官网0.3req/s限流)
     if HUMAN:
         time.sleep(random.uniform(2.5, 6.5))
     else:
         time.sleep(REQUEST_GAP)
-    # 模拟真人: 5% 概率穿插一次页面浏览
     if HUMAN and random.random() < 0.05:
         browse_page()
-    # 每 50 个 API 请求换一次代理 (轮换IP防封)
     if PROXY_LIST and REQ_COUNT % 50 == 49:
         PROXY_IDX += 1
     with open(PROBE_LOG, 'a', encoding='utf-8') as _pf:
@@ -125,7 +122,6 @@ def curl(url, data=None, retries=4):
                 return r.stdout.decode("utf-8", errors="replace")
         except Exception:
             pass
-        # 失败: 换代理重试 (免费代理不稳定)
         if PROXY_LIST:
             cur = PROXY_LIST[(PROXY_IDX + i + 1) % len(PROXY_LIST)]
         time.sleep(8 * (2 ** i))
@@ -158,9 +154,20 @@ def calc(pql, zll, tc, te, jjq, bp, bpq, fjpql, yll):
         return None
     return d
 
+def _to_int(val, default=None):
+    try:
+        s = str(val).strip()
+        if not s or '无效' in s or not any(c.isdigit() for c in s):
+            return default
+        return int(float(s))
+    except (ValueError, TypeError):
+        return default
+
 def build_te_tc(te_min, te_max, tc_min, tc_max):
-    te_min = int(float(te_min)); te_max = int(float(te_max))
-    tc_min = int(float(tc_min)); tc_max = int(float(tc_max))
+    te_min = _to_int(te_min); te_max = _to_int(te_max)
+    tc_min = _to_int(tc_min); tc_max = _to_int(tc_max)
+    if None in (te_min, te_max, tc_min, tc_max):
+        return [], []
     tes, tcs = [], []
     t = te_min if te_min % 2 == 0 else te_min + 1
     while t <= te_max:
@@ -177,7 +184,10 @@ def build_te_tc(te_min, te_max, tc_min, tc_max):
 def get_range(cplb, refr):
     key = f"{cplb}|{refr}"
     rng = RANGES.get(key, {})
-    if rng.get("zfwd_min") in ("无效", None, ""):
+    if not rng:
+        return None
+    zfwd_min = str(rng.get("zfwd_min", "")).strip()
+    if not zfwd_min or '无效' in zfwd_min or not any(c.isdigit() for c in zfwd_min):
         return None
     return rng
 
@@ -228,7 +238,6 @@ def main():
     counts = {"std": 0, "eco": 0, "skip": 0, "fail": 0}
     tasks_done = 0
 
-    # 收集任务元组 (2026-08-20: 收集后打乱, 不按型号连续刷, 模拟真人)
     tasks = []
     for series, specs in cat.items():
         for spec_name, spec in specs.items():
@@ -343,7 +352,7 @@ def dump_result(result):
     for refr, grid in result.items():
         for key, rows in grid.items():
             merged.setdefault(refr, {}).setdefault(key, []).extend(rows)
-    result.clear()  # 2026-08-21 修复: 已并入文件, 清空防同会话重复累积 (与 xnjs 脚本同修)
+    result.clear()
     parts = []
     for refr in sorted(merged.keys()):
         keys = sorted(merged[refr].keys(), key=lambda k: (int(k.split("|")[0]), int(k.split("|")[1])))
