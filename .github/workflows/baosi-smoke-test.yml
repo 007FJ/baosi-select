@@ -1,0 +1,67 @@
+name: baosi-smoke-test
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Debug info
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Runner: ${{ runner.os }}"
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Write proxy file
+        run: |
+          echo "${{ secrets.PROXY_ADDR }}" > proxy_ok.txt
+          echo "Proxy: $(wc -l < proxy_ok.txt) lines"
+
+      - name: Smoke test - single model
+        run: |
+          echo "Running smoke test with BRL 80-20D R22 only..."
+          python src/baosi_gen_probe_human.py --human --proxy proxy_ok.txt --models "BRL 80-20D"
+        timeout-minutes: 10
+
+      - name: Check results
+        run: |
+          echo "=== Progress ==="
+          if [ -f baosi_gen_progress.json ]; then
+            cat baosi_gen_progress.json
+          else
+            echo "No progress file"
+          fi
+          echo ""
+          echo "=== Data file size ==="
+          ls -la compressors_baosi*.js 2>/dev/null || echo "No data file"
+          echo ""
+          echo "=== Log tail ==="
+          if [ -f baosi_gen.log ]; then
+            tail -20 baosi_gen.log
+          else
+            echo "No log file"
+          fi
+
+      - name: Upload output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-test-output
+          path: |
+            compressors_baosi*.js
+            baosi_gen_progress*.json
+            baosi_gen*.log
+            baosi_probe*.log
+          retention-days: 7
