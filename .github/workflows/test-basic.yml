@@ -1,0 +1,35 @@
+name: test-basic
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Python basics
+        run: |
+          python3 -c "
+          import sys, platform, json
+          print(f'Python {sys.version}')
+          print(f'Platform: {platform.platform()}')
+          print(f'JSON test: {json.dumps({\"ok\": True})}')
+          "
+      - name: Sleep test
+        run: |
+          echo "Starting 30s sleep..."
+          sleep 30
+          echo "Sleep done. Script execution confirmed."
+      - name: Python with sleep
+        run: |
+          python3 -c "
+          import time, json
+          print('Python: starting 20s work...')
+          time.sleep(20)
+          print(f'Python: done! Result: {json.dumps({\"works\": True})}')
+          "
+      - name: Final message
+        run: echo "All tests passed!"
