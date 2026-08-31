@@ -21,7 +21,10 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 330
+    concurrency:
+      group: baosi-generator
+      cancel-in-progress: true
 
     steps:
       - name: Debug info
@@ -61,7 +64,7 @@ jobs:
           eval $CMD
 
       - name: Commit progress
-        if: success()
+        if: always()
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
@@ -80,7 +83,7 @@ jobs:
           fi
 
       - name: Continue if needed
-        if: success()
+        if: always()
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
@@ -105,7 +108,7 @@ jobs:
             REMAINING=$((TOTAL - DONE))
             echo "Total: $TOTAL, Done: $DONE, Remaining: $REMAINING"
             if [ "$REMAINING" -gt 0 ]; then
-              echo "Triggering next run in 6 hours..."
+              echo "Triggering next run..."
               curl -X POST \
                 -H "Accept: application/vnd.github.v3+json" \
                 -H "Authorization: token $PAT_TOKEN" \
