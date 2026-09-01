@@ -72,7 +72,7 @@ jobs:
             git config user.name "baosi-bot"
             git config user.email "baosi-bot@users.noreply.github.com"
             git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.repository }}.git
-            git add compressors_baosi.js baosi_gen_progress.json
+            git add -f compressors_baosi.js baosi_gen_progress.json
             DONE=$(python3 -c "
           import json
           prog = json.load(open('baosi_gen_progress.json'))
